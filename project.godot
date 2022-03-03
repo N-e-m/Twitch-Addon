@@ -8,6 +8,22 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Node",
+"class": "Request",
+"language": "GDScript",
+"path": "res://addons/TwitchAddon/API/Request.gd"
+} ]
+_global_script_class_icons={
+"Request": ""
+}
+
+[Twitch]
+
+Client_ID="mxsahzhlk3q9lfqum0lnlioezqggfo"
+Client_Secret="sinhqccw6l6d4iwqmfu2mkyrkjho20"
+App_Token="tl1tfifeu1q93kehh181t73q19txi4"
+
 [application]
 
 config/name="Twitch-Addon"
@@ -15,7 +31,7 @@ config/icon="res://icon.png"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/my_plugin/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/TwitchAddon/plugin.cfg", "res://addons/godot-plugin-refresher/plugin.cfg" )
 
 [physics]
 
