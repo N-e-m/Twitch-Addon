@@ -7,7 +7,7 @@ signal update_table(data)
 onready var client_id_field 		= $MarginContainer/VBoxContainer/ClientIdHBoxContainer/ClientIdField
 onready var client_secret_field 	= $MarginContainer/VBoxContainer/ClientSecretHBoxContainer/ClientSecretField
 onready var redirect_uri_field 		= $MarginContainer/VBoxContainer/RedirectURIHBoxContainer/RedirectURIField
-onready var user_scope_field 		= $MarginContainer/VBoxContainer/UserScopeSecretHBoxContainer/ScopeField
+onready var scope_field 			= $MarginContainer/VBoxContainer/ScopeSecretHBoxContainer/ScopeField
 onready var show_secret_button 		= $MarginContainer/VBoxContainer/ClientSecretHBoxContainer/ShowSecretButton
 onready var token_status 			= $MarginContainer/VBoxContainer/TokenStatusHBoxContainer
 
@@ -21,7 +21,7 @@ func _ready():
 	client_id_field.text = twitch.client_id
 	client_secret_field.text = twitch.client_secret
 	redirect_uri_field.text = twitch.redirect_uri
-	user_scope_field.text = twitch.user_scope
+	scope_field.text = twitch.scope
 		
 	if twitch.app_token:
 		twitch.auth.validate_token(self)

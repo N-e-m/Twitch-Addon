@@ -40,9 +40,9 @@ _global_script_class_icons={
 
 Client_ID="mxsahzhlk3q9lfqum0lnlioezqggfo"
 Client_Secret="sinhqccw6l6d4iwqmfu2mkyrkjho20"
-App_Token="wp2h4fzzzgbmj8yuk1waoxpfbqcwwg"
+App_Token="fbc65dniw82uoso77efmc7z6rj4ni1"
 Redirect_URI="http://localhost:8060/tmp_js_export.html"
-User_Scope="bits:read user:edit user:edit:follows"
+Scopes="channel:edit:commercial"
 
 [application]
 

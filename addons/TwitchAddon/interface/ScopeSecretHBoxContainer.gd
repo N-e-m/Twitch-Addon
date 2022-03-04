@@ -60,7 +60,7 @@ func _ready():
 		self.selected_scopes.push_back(false)
 		id += 1
 		
-	load_scope(Twitch.user_scope)
+	load_scope(Twitch.scope)
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -78,7 +78,7 @@ func update_selected_scopes(val):
 		if selected_scopes[i]:
 			var sep = "" if $ScopeField.text == "" else " "
 			$ScopeField.text += sep + SCOPES[i]
-	Twitch.user_scope = $ScopeField.text
+	Twitch.scope = $ScopeField.text
 
 
 func load_scope(string : String):

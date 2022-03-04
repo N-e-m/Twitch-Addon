@@ -49,7 +49,7 @@ func authorize(requester, state = ""):
 		"client_id"		: Twitch.client_id,
 		"redirect_uri"	: Twitch.redirect_uri,
 		"response_type"	: "token",
-		"scope" 		: Twitch.user_scope,
+		"scope" 		: Twitch.scope,
 		"state"			: state
 	})
 	var dest = URL + path + query

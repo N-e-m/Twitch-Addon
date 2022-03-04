@@ -120,21 +120,22 @@ margin_left = 104.0
 margin_right = 984.0
 margin_bottom = 24.0
 size_flags_horizontal = 3
+text = "http://localhost:8060/tmp_js_export.html"
 
-[node name="UserScopeSecretHBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="ScopeSecretHBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 margin_top = 102.0
 margin_right = 984.0
 margin_bottom = 126.0
 script = ExtResource( 2 )
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/UserScopeSecretHBoxContainer"]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ScopeSecretHBoxContainer"]
 margin_top = 5.0
 margin_right = 100.0
 margin_bottom = 19.0
 rect_min_size = Vector2( 100, 0 )
 text = "Scope"
 
-[node name="ScopeField" type="LineEdit" parent="MarginContainer/VBoxContainer/UserScopeSecretHBoxContainer"]
+[node name="ScopeField" type="LineEdit" parent="MarginContainer/VBoxContainer/ScopeSecretHBoxContainer"]
 margin_left = 104.0
 margin_right = 880.0
 margin_bottom = 24.0
@@ -142,7 +143,7 @@ size_flags_horizontal = 3
 editable = false
 placeholder_text = "set scope with menu select"
 
-[node name="MenuButton" type="MenuButton" parent="MarginContainer/VBoxContainer/UserScopeSecretHBoxContainer"]
+[node name="MenuButton" type="MenuButton" parent="MarginContainer/VBoxContainer/ScopeSecretHBoxContainer"]
 margin_left = 884.0
 margin_right = 984.0
 margin_bottom = 24.0

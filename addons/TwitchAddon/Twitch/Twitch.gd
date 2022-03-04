@@ -11,15 +11,13 @@ const CLIENT_ID_PATH 		= "Twitch/Client_ID"
 const CLIENT_SECRET_PATH 	= "Twitch/Client_Secret"
 const REDIRECT_URI_PATH 	= "Twitch/Redirect_URI"
 const APP_TOKEN_PATH 		= "Twitch/App_Token"
-const APP_SCOPE_PATH 		= "Twitch/App_Scope"
-const USER_SCOPE_PATH 		= "Twitch/User_Scope"
+const SCOPE_PATH 			= "Twitch/Scopes"
 
 var client_id 		: String 	setget set_client_id, 		get_client_id
 var client_secret 	: String 	setget set_client_secret, 	get_client_secret
 var redirect_uri 	: String 	setget set_redirect_uri, 	get_redirect_uri
 var app_token 		: String 	setget set_app_token, 		get_app_token
-var app_scope 		: String 	setget set_app_scope, 		get_app_scope
-var user_scope 		: String 	setget set_user_scope, 		get_user_scope
+var scope 			: String 	setget set_scope, 		get_scope
 
 var user_token 	: String
 var user_auth_data : Dictionary
@@ -65,18 +63,11 @@ func set_app_token(val):
 	ProjectSettings.set_setting(APP_TOKEN_PATH, val)
 	ProjectSettings.save()
 
-func get_app_scope():
-	return ProjectSettings.get_setting(APP_SCOPE_PATH)
+func get_scope():
+	return ProjectSettings.get_setting(SCOPE_PATH)
 
-func set_app_scope(val):
-	ProjectSettings.set_setting(APP_SCOPE_PATH, val)
-	ProjectSettings.save()
-
-func get_user_scope():
-	return ProjectSettings.get_setting(USER_SCOPE_PATH)
-
-func set_user_scope(val):
-	ProjectSettings.set_setting(USER_SCOPE_PATH, val)
+func set_scope(val):
+	ProjectSettings.set_setting(SCOPE_PATH, val)
 	ProjectSettings.save()
 
 #____________________________________________________ SETGETS ___/
