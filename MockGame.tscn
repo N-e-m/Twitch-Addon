@@ -1,0 +1,97 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Control
+
+onready var table = $MarginContainer/HBoxContainer/RichTextLabel
+
+func _ready():
+	Twitch.connect(\"user_authorized\", self, \"_user_authorized\")
+
+func update_table(data: Dictionary):
+	table.clear()
+	if data:
+		table.push_table(2)
+		for key in data.keys():
+			table.append_bbcode(\"[cell]\"+str(key)+\"[/cell] [cell]\"+str(data[key])+\"[/cell]\")
+			table.newline()
+
+
+func _on_Button_pressed():
+	Twitch.auth.authorize(self)
+
+
+func _on_Button2_pressed():
+	Twitch.api.get_user_info(self)
+	pass # Replace with function body.
+
+
+func _on_Button3_pressed():
+	Twitch.auth.revoke_access_token(self, Twitch.user_token)
+	pass # Replace with function body.
+
+func _user_authorized():
+	update_table(Twitch.user_auth_data)
+
+func handle_response(data : Dictionary):
+	var response = parse_json(data.body.get_string_from_utf8())
+	match data.path:
+		\"users\":
+			response = response[\"data\"][0]
+		
+	update_table(response)
+"
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 200
+custom_constants/margin_top = 200
+custom_constants/margin_left = 200
+custom_constants/margin_bottom = 200
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+margin_left = 200.0
+margin_top = 200.0
+margin_right = 824.0
+margin_bottom = 400.0
+
+[node name="Button" type="Button" parent="MarginContainer/HBoxContainer"]
+margin_right = 100.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 100, 0 )
+
+[node name="Button2" type="Button" parent="MarginContainer/HBoxContainer"]
+margin_left = 104.0
+margin_right = 204.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 100, 0 )
+
+[node name="Button3" type="Button" parent="MarginContainer/HBoxContainer"]
+margin_left = 208.0
+margin_right = 308.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 100, 0 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/HBoxContainer"]
+margin_left = 312.0
+margin_right = 624.0
+margin_bottom = 200.0
+size_flags_horizontal = 3
+custom_constants/table_hseparation = 20
+fit_content_height = true
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Button2" to="." method="_on_Button2_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Button3" to="." method="_on_Button3_pressed"]

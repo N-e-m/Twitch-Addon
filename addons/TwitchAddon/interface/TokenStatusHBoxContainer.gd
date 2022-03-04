@@ -32,16 +32,16 @@ func _process(delta):
 		$ExpiresLabel.text = str(floor(time)) + metric
 
 
-func _on_API_update_expire_time(time_in_seconds):
-	if time_in_seconds == 0:
-		set_process(false)
-		_on_Timer_timeout()
-	else:
-		timer.stop()
-		timer.start(time_in_seconds)
-		set_process(true)
-
-
 func _on_Timer_timeout():
 	set_process(false)
 	$ExpiresLabel.text = "--"
+
+
+func _on_Interface_update_token_status(is_valid, time_left_in_seconds):
+	if is_valid:
+		timer.stop()
+		timer.start(time_left_in_seconds)
+		set_process(true)
+	else:
+		set_process(false)
+		_on_Timer_timeout()

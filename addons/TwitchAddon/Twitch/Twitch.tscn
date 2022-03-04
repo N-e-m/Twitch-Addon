@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://addons/TwitchAddon/Twitch/API/API.gd" type="Script" id=1]
+[ext_resource path="res://addons/TwitchAddon/Twitch/RequestFactory.gd" type="Script" id=4]
+[ext_resource path="res://addons/TwitchAddon/Twitch/Twitch.gd" type="Script" id=5]
+[ext_resource path="res://addons/TwitchAddon/Twitch/Auth/Auth.gd" type="Script" id=6]
+
+[node name="Twitch" type="Node"]
+script = ExtResource( 5 )
+
+[node name="RequestFactory" type="Node" parent="."]
+script = ExtResource( 4 )
+
+[node name="API" type="Node" parent="."]
+script = ExtResource( 1 )
+
+[node name="Auth" type="Node" parent="."]
+script = ExtResource( 6 )

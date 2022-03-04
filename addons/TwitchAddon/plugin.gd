@@ -1,17 +1,18 @@
 tool
 extends EditorPlugin
 
-var main_panel = preload("res://addons/TwitchAddon/interface/MainPanel.tscn").instance()
+var interface = preload("res://addons/TwitchAddon/interface/Interface.tscn").instance()
+var twitch_path = "res://addons/TwitchAddon/Twitch/Twitch.tscn"
 
 
 func _enter_tree():
-	get_editor_interface().get_editor_viewport().add_child(main_panel)
+	add_autoload_singleton("Twitch", twitch_path)
+	get_editor_interface().get_editor_viewport().call_deferred("add_child", interface)
 	make_visible(false)
-	
-#	add_autoload_singleton()
 
 func _exit_tree():
-	if main_panel: 	main_panel.queue_free()
+	if interface: 	interface.queue_free()
+	remove_autoload_singleton("Twitch")
 
 func has_main_screen():
 	return true
@@ -23,4 +24,4 @@ func get_plugin_icon():
 	return preload("res://addons/TwitchAddon/assets/Twitch_icon.png")
 
 func make_visible(visible):
-	if main_panel: 	main_panel.visible = visible
+	if interface: 	interface.visible = visible

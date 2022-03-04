@@ -46,17 +46,22 @@ var selected_scopes = [] setget update_selected_scopes# parrallel array to scope
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	popup.clear()
 	popup.hide_on_checkable_item_selection = false
 	popup.hide_on_item_selection = false
 	popup.hide_on_state_item_selection = false
+	
 	
 	popup.connect("id_pressed", self, "item_selected")
 	
 	var id = 0
 	for scope in SCOPES:
 		popup.add_check_item(scope, id)
-		selected_scopes.push_back(false)
+		self.selected_scopes.push_back(false)
 		id += 1
+		
+	load_scope(Twitch.user_scope)
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -71,16 +76,15 @@ func update_selected_scopes(val):
 	$ScopeField.clear()
 	for i in selected_scopes.size():
 		if selected_scopes[i]:
-			var sep = "" if $ScopeField.text == "" else ", "
+			var sep = "" if $ScopeField.text == "" else " "
 			$ScopeField.text += sep + SCOPES[i]
-	
-
-func _on_SelectScopesButton_pressed():
-#	$PopupMenu.visible = !$PopupMenu.visible
-	$PopupDialog.visible = !$PopupDialog.visible
-	pass # Replace with function body.
+	Twitch.user_scope = $ScopeField.text
 
 
-func _on_PopupMenu_id_pressed(id):
-	print($PopupMenu.is_item_checked(id))
-	pass # Replace with function body.
+func load_scope(string : String):
+	var scopes = string.split(" ")
+	for scope in scopes:
+		var ind = SCOPES.find(scope)
+		if ind != -1:
+			popup.set_item_checked(ind, true)
+			self.selected_scopes[ind] = true

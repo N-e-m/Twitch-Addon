@@ -10,24 +10,49 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Node",
+"class": "API",
+"language": "GDScript",
+"path": "res://addons/TwitchAddon/Twitch/API/API.gd"
+}, {
+"base": "Node",
+"class": "Auth",
+"language": "GDScript",
+"path": "res://addons/TwitchAddon/Twitch/Auth/Auth.gd"
+}, {
+"base": "HTTPRequest",
 "class": "Request",
 "language": "GDScript",
-"path": "res://addons/TwitchAddon/API/Request.gd"
+"path": "res://addons/TwitchAddon/Twitch/Request.gd"
+}, {
+"base": "Node",
+"class": "RequestFactory",
+"language": "GDScript",
+"path": "res://addons/TwitchAddon/Twitch/RequestFactory.gd"
 } ]
 _global_script_class_icons={
-"Request": ""
+"API": "",
+"Auth": "",
+"Request": "",
+"RequestFactory": ""
 }
 
 [Twitch]
 
 Client_ID="mxsahzhlk3q9lfqum0lnlioezqggfo"
 Client_Secret="sinhqccw6l6d4iwqmfu2mkyrkjho20"
-App_Token="tl1tfifeu1q93kehh181t73q19txi4"
+App_Token="wp2h4fzzzgbmj8yuk1waoxpfbqcwwg"
+Redirect_URI="http://localhost:8060/tmp_js_export.html"
+User_Scope="bits:read user:edit user:edit:follows"
 
 [application]
 
 config/name="Twitch-Addon"
+run/main_scene="res://MockGame.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+Twitch="*res://addons/TwitchAddon/Twitch/Twitch.tscn"
 
 [editor_plugins]
 

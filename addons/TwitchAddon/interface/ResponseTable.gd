@@ -2,7 +2,7 @@ tool
 extends RichTextLabel
 
 
-func _on_API_update_response_table(data):
+func _on_Interface_update_table(data):
 	clear()
 	if data:
 		push_table(2)
