@@ -25,5 +25,5 @@ func _http_request_completed(result, response_code, headers, body):
 		"body"			: body,
 		"path"			: data.path
 	}
-	data.requester.handle_response(response_data)
+	data.requester.call(data.return_function, response_data)
 	queue_free()
