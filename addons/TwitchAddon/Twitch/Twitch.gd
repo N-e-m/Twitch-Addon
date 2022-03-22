@@ -22,11 +22,11 @@ var scope 			: String 	setget set_scope, 		get_scope
 var user_token 	: String
 var user_auth_data : Dictionary
 
-func _init():
-	var hash_dict = parse_hash_params(get_hash())
-	if hash_dict and hash_dict.has("access_token"): 
-		user_auth_data = hash_dict
-		user_token =  user_auth_data["access_token"]
+#func _init():
+#	var hash_dict = parse_hash_params(get_hash())
+#	if hash_dict and hash_dict.has("access_token"): 
+#		user_auth_data = hash_dict
+#		user_token =  user_auth_data["access_token"]
 
 func _ready():
 	if user_token:
@@ -34,6 +34,12 @@ func _ready():
 
 
 #‾‾‾ SETGETS ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾\
+
+func set_user_token(val):
+	user_token = val
+
+func get_user_token():
+	return user_token
 
 func get_client_id():
 	return ProjectSettings.get_setting(CLIENT_ID_PATH)

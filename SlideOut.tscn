@@ -1,0 +1,272 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://resources/themes/Menu-Theme.tres" type="Theme" id=1]
+[ext_resource path="res://SlideOut.gd" type="Script" id=2]
+
+[sub_resource type="Animation" id=7]
+resource_name = "in"
+length = 0.3
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Cap:rect_min_size:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 40, -0.2, -0.129013, 0, -5.65896, 20, -0.25, 0, 0, 21.0393 ),
+"times": PoolRealArray( 0, 0.3 )
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "out"
+length = 0.3
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Cap:rect_min_size:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 20, -0.25, 0, 0, 21.0393, 40, -0.2, -0.129013, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.3 )
+}
+
+[sub_resource type="Animation" id=8]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:rect_min_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("..:expanded")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Button:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Button:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "in"
+length = 0.7
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("ColorRect:rect_min_size:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 300, -0.25, 0, 0.5, -0.0117188, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.7 )
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("..:expanded")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.6 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "swap_button_text"
+} ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Button:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "out"
+length = 0.7
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("ColorRect:rect_min_size:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.1, 0, 300, -0.8, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.7 )
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("..:expanded")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.0394849 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "swap_button_text"
+} ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Button:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[node name="SlideOut" type="HBoxContainer"]
+custom_constants/separation = 0
+script = ExtResource( 2 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_right = 147.0
+margin_bottom = 64.0
+custom_constants/separation = -1
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer"]
+margin_bottom = 64.0
+rect_clip_content = true
+color = Color( 0.14902, 0.654902, 0.478431, 1 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_clip_content = true
+custom_constants/separation = -1
+
+[node name="Spacer" type="ColorRect" parent="HBoxContainer/ColorRect/HBoxContainer"]
+margin_right = 20.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 20, 0 )
+color = Color( 0.14902, 0.654902, 0.478431, 1 )
+
+[node name="RoomCode" type="LineEdit" parent="HBoxContainer/ColorRect/HBoxContainer"]
+margin_left = 19.0
+margin_right = 119.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 100, 0 )
+size_flags_horizontal = 3
+theme = ExtResource( 1 )
+custom_constants/minimum_spaces = 0
+align = 1
+max_length = 10
+context_menu_enabled = false
+placeholder_text = "enter code"
+caret_blink = true
+caret_blink_speed = 0.5
+
+[node name="Button" type="Button" parent="HBoxContainer"]
+margin_left = -1.0
+margin_right = 147.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 148, 64 )
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource( 1 )
+enabled_focus_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/Button"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = 28
+
+[node name="Cap" type="ColorRect" parent="HBoxContainer/Button/HBoxContainer"]
+margin_right = 20.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 20, 0 )
+mouse_filter = 1
+color = Color( 0.215686, 0.741176, 0.556863, 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HBoxContainer/Button/HBoxContainer/Cap"]
+root_node = NodePath("../..")
+anims/in = SubResource( 7 )
+anims/out = SubResource( 6 )
+
+[node name="Label" type="Label" parent="HBoxContainer/Button/HBoxContainer"]
+margin_left = 48.0
+margin_top = 15.0
+margin_right = 148.0
+margin_bottom = 49.0
+size_flags_horizontal = 3
+text = "closed"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HBoxContainer"]
+reset_on_save = false
+anims/RESET = SubResource( 8 )
+anims/in = SubResource( 9 )
+anims/out = SubResource( 10 )
+
+[connection signal="button_down" from="HBoxContainer/Button" to="." method="_on_Button_button_down"]
+[connection signal="pressed" from="HBoxContainer/Button" to="." method="_on_Button_pressed"]

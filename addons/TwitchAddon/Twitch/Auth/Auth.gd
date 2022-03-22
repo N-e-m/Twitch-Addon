@@ -48,10 +48,11 @@ func authorize(state : String = ""):
 	var query = Twitch.dict_to_query({
 		"client_id"		: Twitch.client_id,
 		"redirect_uri"	: Twitch.redirect_uri,
-		"response_type"	: "token",
+		"response_type"	: "code",
 		"scope" 		: Twitch.scope,
 		"state"			: state
 	})
 	var dest = URL + path + query
+	print(dest)
 	if OS.has_feature('JavaScript'):
 		JavaScript.eval('window.location.replace("' + dest + '")')
